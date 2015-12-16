@@ -452,14 +452,14 @@ static int put_jpeg_yuv420p_memory(unsigned char *dest_image, int image_size,
 
     jpeg_set_quality(&cinfo, quality, TRUE);
     cinfo.dct_method = JDCT_FASTEST;
-    
+
     _jpeg_mem_dest(&cinfo, dest_image, image_size);  // Data written to mem
-    
+
 
     jpeg_start_compress(&cinfo, TRUE);
 
     put_jpeg_exif(&cinfo, cnt, tm, box);
-    
+
     /* If the image is not a multiple of 16, this overruns the buffers
      * we'll just pad those last bytes with zeros
      */
@@ -469,13 +469,13 @@ static int put_jpeg_yuv420p_memory(unsigned char *dest_image, int image_size,
                 y[i] = input_image + width * (i + j);
                 if (i % 2 == 0) {
                     cb[i / 2] = input_image + width * height + width / 2 * ((i + j) /2);
-                    cr[i / 2] = input_image + width * height + width * height / 4 + width / 2 * ((i + j) / 2);                
+                    cr[i / 2] = input_image + width * height + width * height / 4 + width / 2 * ((i + j) / 2);
                 }
             } else {
                 y[i] = 0x00;
                 cb[i] = 0x00;
                 cr[i] = 0x00;
-            }    
+            }
         }
         jpeg_write_raw_data(&cinfo, data, 16);
     }
@@ -613,8 +613,8 @@ static void put_jpeg_yuv420p_file(FILE *fp,
                 y[i] = 0x00;
                 cb[i] = 0x00;
                 cr[i] = 0x00;
-            }        
-        }    
+            }
+        }
         jpeg_write_raw_data(&cinfo, data, 16);
     }
 

@@ -874,7 +874,7 @@ int netcam_setup_rtsp(netcam_context_ptr netcam, struct url_t *url){
         av_register_all();
         avcodec_register_all();
     pthread_mutex_unlock(&global_lock);
-    
+
     /*
      * The RTSP context should be all ready to attempt a connection with
      * the server, so we try ....

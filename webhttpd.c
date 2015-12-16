@@ -1974,7 +1974,7 @@ static unsigned int handle_get(int client_socket, const char *url, void *userdat
                 sprintf(res, "<b>Motion "VERSION" Running [%hu] Threads</b><br>\n"
                              "<a href='/0/'>All</a>\n", i);
                 send_template(client_socket, res);
-                
+
                 counter = 0;
                 for (y = 1; y < i; y++) {
                     counter++;
@@ -2579,7 +2579,7 @@ void *motion_web_control(void *arg)
     struct context **cnt = arg;
     httpd_run(cnt);
 
-    /* 
+    /*
      * Update how many threads we have running. This is done within a
      * mutex lock to prevent multiple simultaneous updates to
      * 'threads_running'.
