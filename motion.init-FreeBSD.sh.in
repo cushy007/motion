@@ -1,13 +1,13 @@
 #!/bin/sh
 #
-# motion.sh for rc.d usage 2006 Angel Carpintero 
+# motion.sh for rc.d usage 2006 Angel Carpintero
 #
 # Add the following line in /etc/rc.conf to enable @PACKAGE_NAME@ at startup
 #
 # motion_enable="YES"
 #
 
-# PROVIDE: @PACKAGE_NAME@ 
+# PROVIDE: @PACKAGE_NAME@
 # REQUIRE: DAEMON
 # KEYWORD: shutdown
 

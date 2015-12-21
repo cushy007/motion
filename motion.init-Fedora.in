@@ -1,11 +1,11 @@
 #!/bin/bash
 #
-# motion        Startup script for the Motion Detection System 
+# motion        Startup script for the Motion Detection System
 #
 # chkconfig:    - 85 15
 # description:  Motion detection system.  It is used to detect movement based \
 #               on compare images.
-# processname:  @PACKAGE_NAME@ 
+# processname:  @PACKAGE_NAME@
 # pidfile:      /var/run/@PACKAGE_NAME@.pid
 # config:       /etc/@PACKAGE_NAME@.conf
 #
@@ -13,8 +13,8 @@
 # Provides: motion
 # Required-Start: $local_fs
 # Required-Stop: $local_fs
-# Default-Start: 
-# Default-Stop: 
+# Default-Start:
+# Default-Stop:
 # Short-Description: Start and stop motion detection system
 # Description: The Motion detection system is used to detect movement based
 #              on image comparison.
@@ -32,7 +32,7 @@ start() {
     [ -x $exec ] || exit 5
     [ -f $config ] || exit 6
     echo -n $"Starting $prog: "
-    # We try to determine which architecture we have so we can 
+    # We try to determine which architecture we have so we can
     # load libv4l to support more USB cameras. x86_64 and ppc64
     # are both supported by rpmfusion.
     case $(uname -i) in
@@ -73,11 +73,11 @@ reload() {
     return $retval
 }
 
-rh_status() { 
+rh_status() {
     # run checks to determine if the service is running or use generic status
     status $prog
 }
-          
+
 rh_status_q() {
     rh_status >/dev/null 2>&1
 }
@@ -92,7 +92,7 @@ case "$1" in
     stop)
         rh_status_q || exit 0
         $1
-        ;;        
+        ;;
     restart)
         $1
         ;;

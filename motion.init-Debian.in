@@ -25,19 +25,19 @@ case "$1" in
 
   stop)
     echo "Stopping @PACKAGE_NAME@ detection : $NAME"
-    start-stop-daemon --stop --pidfile $PIDFILE --oknodo --exec $DAEMON --retry 30 
+    start-stop-daemon --stop --pidfile $PIDFILE --oknodo --exec $DAEMON --retry 30
     ;;
 
   status)
     echo "Status @PACKAGE_NAME@ detection : $NAME"
     if (test -f $PIDFILE); then
         echo -n "Running process for $NAME : "
-    	pidof $NAME  
+    	pidof $NAME
     else
     	echo "Stopped"
     fi
-    ;;  
-    
+    ;;
+
   reload-config)
     echo "Reloading $NAME configuration"
     start-stop-daemon --stop --pidfile $PIDFILE --signal HUP --exec $DAEMON
