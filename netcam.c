@@ -1369,7 +1369,7 @@ static int netcam_read_html_jpeg(netcam_context_ptr netcam)
  *
  * Returns:             0 on success, -1 if an error occurs.
  */
-static int netcam_http_request(netcam_context_ptr netcam)
+static int netcam_http_request(netcam_context_ptr netcam) // TODO
 {
     int ix;
 
@@ -2286,7 +2286,7 @@ static int netcam_http_build_url(netcam_context_ptr netcam, struct url_t *url)
  * Returns:     0 on success (camera link ok) or -1 if an error occurred.
  *
  */
-static int netcam_setup_html(netcam_context_ptr netcam, struct url_t *url)
+static int netcam_setup_html(netcam_context_ptr netcam, struct url_t *url) // entry point for http camera
 {
     /*
      * This netcam is http-based, so build the required URL and
